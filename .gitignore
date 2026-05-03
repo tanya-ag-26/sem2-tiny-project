@@ -1,3 +1,6 @@
 venv/
-venv/
 .env
+
+# Ignore sensitive/project data
+users.json
+chat_history.json
