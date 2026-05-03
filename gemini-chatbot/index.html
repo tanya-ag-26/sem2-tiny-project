@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Echo Mind – AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ LOGIN SCREEN ═══ -->
+<div class="screen" id="screen-login">
+  <div class="welcome-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-lines"></div>
+  </div>
+  <div class="login-layout">
+    <!-- Left panel: branding -->
+    <div class="login-left">
+      <div class="brand-tag">AI ASSISTANT</div>
+      <h1 class="welcome-title">Echo<br><span class="gradient-text">Mind</span></h1>
+      <p class="login-tagline">Your intelligent companion for finance, health, development & more.</p>
+      <div class="robot-container" style="margin-top:32px;">
+        <div class="robot-glow"></div>
+        <div class="robot">
+          <div class="robot-head">
+            <div class="robot-eye left"></div>
+            <div class="robot-eye right"></div>
+            <div class="robot-mouth"></div>
+            <div class="robot-antenna"></div>
+          </div>
+          <div class="robot-body">
+            <div class="robot-chest"></div>
+            <div class="robot-arm left-arm"></div>
+            <div class="robot-arm right-arm"></div>
+          </div>
+          <div class="robot-legs">
+            <div class="robot-leg"></div>
+            <div class="robot-leg"></div>
+          </div>
+        </div>
+        <div class="speech-bubble">Ready to help! 🤖</div>
+      </div>
+    </div>
+
+    <!-- Right panel: login form -->
+    <div class="login-right">
+      <div class="login-card">
+        <div class="login-card-header">
+          <h2>Welcome Back</h2>
+          <p>Enter your name to get started</p>
+        </div>
+
+        <div class="login-form">
+          <div class="form-group">
+            <label for="login-name">Your Name</label>
+            <div class="input-field-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="login-name" placeholder="e.g. Alex Johnson" autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <div class="input-field-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <input type="email" id="login-email" placeholder="you@example.com" autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <div class="input-field-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <input type="password" id="login-password" placeholder="••••••••" autocomplete="off" />
+            </div>
+          </div>
+
+          <div id="login-error" class="login-error hidden">Please fill in all fields.</div>
+
+          <button class="btn-login" onclick="handleLogin()">
+            <span>Enter Echo Mind</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+
+          <p class="login-note">Your name is saved locally so Echo Mind can greet you personally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ WELCOME SCREEN ═══ -->
+<div class="screen hidden" id="screen-welcome">
+  <div class="welcome-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-lines"></div>
+  </div>
+  <div class="welcome-content">
+    <div class="brand-tag">AI ASSISTANT</div>
+    <h1 class="welcome-title">Meet the<br><span class="gradient-text">Echo Mind!</span></h1>
+    <div class="robot-container">
+      <div class="robot-glow"></div>
+      <div class="robot">
+        <div class="robot-head">
+          <div class="robot-eye left"></div>
+          <div class="robot-eye right"></div>
+          <div class="robot-mouth"></div>
+          <div class="robot-antenna"></div>
+        </div>
+        <div class="robot-body">
+          <div class="robot-chest"></div>
+          <div class="robot-arm left-arm"></div>
+          <div class="robot-arm right-arm"></div>
+        </div>
+        <div class="robot-legs">
+          <div class="robot-leg"></div>
+          <div class="robot-leg"></div>
+        </div>
+      </div>
+      <div class="speech-bubble">Need our help now? 🤔</div>
+    </div>
+    <button class="btn-start" onclick="goToScreen('screen-home')">
+      <span>Get Started</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ HOME SCREEN ══════ -->
+<div class="screen hidden" id="screen-home">
+  <div class="desktop-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">🤖</div>
+        <div>
+          <div class="sidebar-title">Echo Mind</div>
+          <div class="sidebar-sub">AI Assistant</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="sidebar-btn active" onclick="showPanel('panel-home')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span>Home</span>
+        </button>
+        <button class="sidebar-btn" onclick="showPanel('panel-chat')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span>Chat</span>
+        </button>
+        <button class="sidebar-btn" onclick="alert('Profile coming soon!')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Profile</span>
+        </button>
+        <button class="sidebar-btn" onclick="alert('Settings coming soon!')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12h2M20 12h2M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41"/></svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+        </div>
+        <div style="flex:1;min-width:0">
+          <div class="user-name" id="sidebar-username" style="font-size:0.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">User</div>
+          <div class="user-greeting">Logged in</div>
+        </div>
+        <button class="icon-btn" title="Logout" onclick="handleLogout()" style="width:32px;height:32px;flex-shrink:0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <!-- ── HOME PANEL ── -->
+      <div class="panel" id="panel-home">
+        <div class="app-bg"><div class="orb orb-1 small"></div><div class="orb orb-2 small"></div></div>
+
+        <header class="topbar">
+          <div class="user-info">
+            <div class="avatar">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+            <div>
+              <div class="user-greeting">Good day,</div>
+              <div class="user-name" id="home-username">User! 👋</div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Action cards -->
+        <section class="action-cards">
+          <div class="action-card" onclick="showPanel('panel-chat')">
+            <div class="action-icon chat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <span>Chat with<br><strong>Echo Mind</strong></span>
+          </div>
+          <div class="action-card" onclick="alert('Analytics coming soon!')">
+            <div class="action-icon" style="background:linear-gradient(135deg,#22d3ee22,#22d3ee44);color:var(--cyan-accent);border:1px solid rgba(34,211,238,0.3)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span>View your<br><strong>Analytics</strong></span>
+          </div>
+        </section>
+
+        <!-- Topics -->
+        <section class="section-block">
+          <div class="section-header">
+            <h3>Topics</h3>
+            <a href="#" class="view-all">View All</a>
+          </div>
+          <div class="topics-grid">
+            {% for topic in topics %}
+            <div class="topic-chip" data-topic="{{ topic.id }}" onclick="selectTopic('{{ topic.id }}', '{{ topic.label }}')">
+              <span class="topic-icon">{{ topic.icon }}</span>
+              <span>{{ topic.label }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <!-- History -->
+        <section class="section-block">
+          <div class="section-header">
+            <h3>History</h3>
+            <a href="#" class="view-all">View All</a>
+          </div>
+          <div class="history-list" id="history-list">
+            {% for item in history %}
+            <div class="history-item" onclick="askFromHistory('{{ item.question }}')">
+              <div class="history-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="history-text">
+                <p>{{ item.question }}</p>
+                <span>{{ item.time }}</span>
+              </div>
+              <svg class="history-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+
+      <!-- ── CHAT PANEL ── -->
+      <div class="panel hidden" id="panel-chat">
+        <div class="app-bg"><div class="orb orb-1 small"></div></div>
+
+        <header class="chat-header">
+          <div class="chat-title-info">
+            <div class="chat-avatar">
+              <div class="mini-robot">🤖</div>
+              <div class="online-dot"></div>
+            </div>
+            <div>
+              <div class="chat-name">Echo Mind</div>
+              <div class="chat-status">Always online</div>
+            </div>
+          </div>
+          <button class="icon-btn" onclick="clearChat()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+          </button>
+        </header>
+
+        <!-- Topic filter bar -->
+        <div class="topic-filter" id="topic-filter">
+          <button class="filter-chip active" data-topic="">All</button>
+          {% for topic in topics %}
+          <button class="filter-chip" data-topic="{{ topic.id }}">{{ topic.icon }} {{ topic.label }}</button>
+          {% endfor %}
+        </div>
+
+        <!-- Messages -->
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg bot-msg">
+            <div class="bot-bubble">
+              <div class="bot-avatar-sm">🤖</div>
+              <div class="bubble">
+                <p>👋 Hi! I'm <strong>Echo Mind</strong>. Ask me anything about finance, health, development, business, or anything else!</p>
+                <span class="msg-time">Now</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="typing-indicator hidden" id="typing-indicator">
+          <div class="bot-avatar-sm">🤖</div>
+          <div class="typing-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <!-- Chat input -->
+        <div class="chat-input-area">
+          <div class="input-wrapper">
+            <input type="text" id="chat-input" placeholder="Ask Echo Mind anything..." autocomplete="off" />
+          </div>
+          <button class="send-btn" id="send-btn" onclick="sendMessage()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

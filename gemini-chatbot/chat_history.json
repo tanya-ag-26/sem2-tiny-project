@@ -1,0 +1,104 @@
+{
+    "session_qbzwedbx": [
+        {
+            "role": "user",
+            "content": "hi"
+        },
+        {
+            "role": "assistant",
+            "content": "(Mock reply) Gemini would answer: 'hi'"
+        },
+        {
+            "role": "user",
+            "content": "how are you"
+        },
+        {
+            "role": "assistant",
+            "content": "(Mock reply) Gemini would answer: 'how are you'"
+        }
+    ],
+    "web": [
+        {
+            "role": "user",
+            "content": "my name is nyx you will remember it"
+        },
+        {
+            "role": "assistant",
+            "content": "Okay, Nyx. I'll remember that. It's a beautiful name!"
+        },
+        {
+            "role": "user",
+            "content": "my friend's name is aishani agrawal"
+        },
+        {
+            "role": "assistant",
+            "content": "Okay, Nyx. I'll remember that your friend's name is Aishani Agrawal."
+        },
+        {
+            "role": "user",
+            "content": "WHAT IS MY NAME"
+        },
+        {
+            "role": "assistant",
+            "content": "Your name is Nyx."
+        },
+        {
+            "role": "user",
+            "content": "WHAT IS MY FRIEND'S NAME"
+        },
+        {
+            "role": "assistant",
+            "content": "Your friend's name is Aishani Agrawal."
+        },
+        {
+            "role": "user",
+            "content": "what is my name"
+        },
+        {
+            "role": "assistant",
+            "content": "Your name is Nyx."
+        }
+    ],
+    "default": [
+        {
+            "role": "user",
+            "content": "who is Hema malini",
+            "timestamp": "2026-04-30T06:00:49.017155"
+        },
+        {
+            "role": "assistant",
+            "content": "Hema Malini is a renowned Indian actress, dancer, producer, and politician. Often referred to as \"Dream Girl,\" she rose to prominence in Hindi cinema during the 1970s and 1980s, starring in numerous successful films.\n\nBeyond her acting career, she is an accomplished Bharatnatyam dancer and has served as a member of Parliament, representing the Mathura constituency in the Lok Sabha.",
+            "timestamp": "2026-04-30T06:00:49.017155"
+        },
+        {
+            "role": "user",
+            "content": "Tell me about Food",
+            "timestamp": "2026-04-30T06:01:16.660327"
+        },
+        {
+            "role": "assistant",
+            "content": "(Mock reply) Gemini would answer: 'Tell me about Food'",
+            "timestamp": "2026-04-30T06:01:16.660327"
+        },
+        {
+            "role": "user",
+            "content": "Tell me about Health",
+            "timestamp": "2026-04-30T06:01:43.618580"
+        },
+        {
+            "role": "assistant",
+            "content": "Health is a state of complete physical, mental, and social well-being, not merely the absence of disease or infirmity. It's a fundamental aspect of human existence, influencing our quality of life, productivity, and happiness.\n\nIt encompasses several key dimensions:\n\n*   **Physical Health:** Refers to the well-being of the body, including proper functioning of organs, systems, and the absence of illness or injury. Factors like nutrition, exercise, sleep, and hygiene play a crucial role.\n*   **Mental Health:** Involves an individual's emotional, psychological, and social well-being. It affects how we think, feel, and act, and helps determine how we handle stress, relate to others, and make choices.\n*   **Social Health:** Relates to our ability to form meaningful relationships, interact effectively with others, and contribute positively to our community.\n*   **Emotional Health:** The ability to understand and manage one's own emotions, and to empathize with others.\n*   **Spiritual Health:** While distinct from religion, it often involves a sense of purpose, meaning in life, and connection to something greater than oneself.\n\nMaintaining good health is an ongoing process that involves a balanced lifestyle, preventive care, managing stress, and seeking appropriate medical attention when needed.",
+            "timestamp": "2026-04-30T06:01:43.618580"
+        },
+        {
+            "role": "user",
+            "content": "Tell me about today bitcoin price",
+            "timestamp": "2026-04-30T06:03:04.076014"
+        },
+        {
+            "role": "assistant",
+            "content": "The current Bitcoin price is $75561 USD, which is \u20b97200584 INR.",
+            "timestamp": "2026-04-30T06:03:04.076014"
+        }
+    ]
+}
